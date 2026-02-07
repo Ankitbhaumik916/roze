@@ -9,7 +9,7 @@ let index = 0;
 let charIndex = 0;
 const dialogueEl = document.getElementById("dialogue");
 const revealBtn = document.getElementById("revealBtn");
-const rose = document.querySelector(".rose");
+const rose = document.getElementById("rose");
 
 function typeText() {
   if (charIndex < dialogueText[index].length) {
@@ -29,7 +29,7 @@ function typeText() {
 typeText();
 
 revealBtn.addEventListener("click", () => {
-  rose.classList.remove("hidden");
+  rose.classList.add("show");
   revealBtn.style.display = "none";
   startPetals();
 });
