@@ -2,6 +2,11 @@
 
 // Initialize all systems
 document.addEventListener('DOMContentLoaded', () => {
+  // Remove not-loaded class to start flower animations
+  setTimeout(() => {
+    document.body.classList.remove('not-loaded');
+  }, 100);
+  
   initTheme();
   initMusic();
   initTypewriter();
