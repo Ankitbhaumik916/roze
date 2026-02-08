@@ -2,77 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rose Day</title>
+  <title>Rose Day - Special Moment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background: #1a1a2e;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .container {
-      text-align: center;
-      z-index: 1;
-    }
-    h1 {
-      font-size: 2.8rem;
-      color: #ff6b9d;
-      margin-bottom: 20px;
-    }
-    #dialogue {
-      max-width: 500px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
-      min-height: 70px;
-    }
-    button {
-      padding: 12px 28px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #ff4d6d, #ff758f);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 0 25px #ff4d6d80;
-    }
-    .rose {
-      font-size: 6rem;
-      margin-top: 30px;
-      display: none;
-    }
-    .rose.show {
-      display: block;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header Controls -->
+  <header class="header">
+    <div class="controls">
+      <button class="control-btn" id="themeToggle" title="Toggle Theme (T)">🌙</button>
+      <button class="control-btn" id="musicToggle" title="Toggle Music (M)">🔊</button>
+      <span class="counter" id="heartCount">❤️ 0</span>
+    </div>
+  </header>
+
+  <!-- Floating Hearts Background -->
+  <div class="hearts-container" id="heartsContainer"></div>
+
+  <!-- Main Container -->
   <div class="container">
-    <h1>Happy Rose Day 🌹</h1>
-    <p id="dialogue"></p>
-    <button id="revealBtn">Open the Rose</button>
-    <div class="rose" id="rose">🌹</div>
+    <h1 class="title">Happy Rose Day 🌹</h1>
+    <p id="dialogue" class="dialogue"></p>
+    <button id="revealBtn" class="btn-primary">Open the Rose ✨</button>
+    <div class="rose-wrapper" id="roseWrapper">
+      <div class="rose" id="rose">🌹</div>
+      <div class="rose-light"></div>
+    </div>
+    <div class="celebration" id="celebration"></div>
   </div>
 
+  <!-- Audio Element -->
+  <audio id="bgMusic" loop>
+    <source src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==" type="audio/wav">
+  </audio>
+
+  <!-- Canvases for Animations -->
   <canvas id="petals"></canvas>
+  <canvas id="confetti"></canvas>
+  <canvas id="hearts"></canvas>
 
   <script src="script.js"></script>
 </body>
